@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Proyecto</string>
+    <string name="action_settings">Settings</string>
+    <string name="opciones">OPCIONES</string>
+    <string name="title_activity_lista_tipos_platos">ListaTiposPlatos</string>
+    <string name="escogeMesa">Escoge una Mesa</string>
+    <string name="mesa">Número de mesa</string>
+    <string name="codigoMesa">Código de Mesa</string>
+    <string name="ingresaNombre">Ingresa tu nombre</string>
+    <string name="ingresaApellido">Ingresa tu apellido</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="hazPedido">Haz Tu Pedido</string>
+    <string name="Menu">Menú</string>
+    <string name="plato">Plato</string>
+    <string name="pedido">Pedido</string>
+    <string name="agregar">Agregar</string>
+    <string name="enviar">Enviar</string>
+    <string name="agregarPlato">Agregar Plato</string>
+    <string name="nombrePlato">Nombre del Plato</string>
+    <string name="tipo">Tipo</string>
+    <string name="precio">Precio</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="guardar">Guardar</string>
+    <string name="datosPlato">Datos del plato</string>
+    <string name="listaTipos">Tipos de platos</string>
+
+    <string-array name="opciones">
+        <item>@string/agregarPlato</item>
+        <item>@string/agregarUsuario</item>
+        <item>@string/listaTipos</item>
+        <item>@string/hazPedido</item>
+    </string-array>
+
+    <string name="platoPrincipal">Plato Principal</string>
+    <string name="guarnicion">Guarnición</string>
+    <string name="bebida">Bebidas</string>
+    <string name="postre">Postres</string>
+    <string name="platoAgregado">Plato Agregado Exitosamente.</string>
+    <string name="seleccionarFoto">Seleccionar Foto</string>
+    <string name="agregaUsuario">Agregar Usuario</string>
+    <string name="nombreUsuario">Nombre del Usuario</string>
+    <string name="cedulaBuscar">Ingresa Tu Cedula</string>
+    <string name="buscar">Buscar</string>
+    <string name="cedula">Cédula</string>
+    <string name="metodoPago">Metodo de Pago</string>
+    <string-array name="opcionesPlato">
+        <item>@string/platoPrincipal</item>
+        <item>@string/guarnicion</item>
+        <item>@string/bebida</item>
+        <item>@string/postre</item>
+    </string-array>
+
+    <string name="efectivo">Efectivo</string>
+    <string name="tarjeta">Tarjeta</string>
+    <string name="usuario_guardado_exitoso">Usuario guardado exitosamente</string>
+    <string name="agregarUsuario">Agregar Usuario</string>
+    <string-array name="metodoPago">
+        <item>@string/efectivo</item>
+        <item>@string/tarjeta</item>
+    </string-array>
+
+    <string name="mesa1">Mesa 1</string>
+    <string name="mesa2">Mesa 2</string>
+    <string name="mesa3">Mesa 3</string>
+    <string name="mesa4">Mesa 4</string>
+    <string name="mesa5">Mesa 5</string>
+    <string name="usuario_no_encontrado">Usuario No Encontrado</string>
+    <string name="cargarPlatos">Cargar Platos</string>
+    <string name="limppiar">Limpiar</string>
+    <string name="listaEsc">Lista de </string>
+    <string-array name="mesas">
+        <item>@string/mesa1</item>
+        <item>@string/mesa2</item>
+        <item>@string/mesa3</item>
+        <item>@string/mesa4</item>
+        <item>@string/mesa5</item>
+    </string-array>
+
+</resources>
