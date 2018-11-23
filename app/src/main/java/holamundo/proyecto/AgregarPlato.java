@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -49,18 +50,20 @@ public class AgregarPlato extends AppCompatActivity {
         String foto, nombre, tipo, id;
         int precio;
 
-        id = Datos.getId();
-        foto=id+".jpg";
-        nombre=txtNombrePlato.getText().toString();
-        tipo=cmbTipos.getSelectedItem().toString();
-        precio=Integer.parseInt(txtPrecioPlato.getText().toString());
+        if (validar()){
+            id = Datos.getId();
+            foto=id+".jpg";
+            nombre=txtNombrePlato.getText().toString();
+            tipo=cmbTipos.getSelectedItem().toString();
+            precio=Integer.parseInt(txtPrecioPlato.getText().toString());
 
-        Plato p = new Plato(id,nombre,tipo,precio,foto);
-        p.guardar();
-        subirFoto(foto);
-        limpiar();
-        Snackbar.make(v,getResources().getString(R.string.platoAgregado),Snackbar.LENGTH_SHORT)
-                .show();
+            Plato p = new Plato(id,nombre,tipo,precio,foto);
+            p.guardar();
+            subirFoto(foto);
+            limpiar();
+            Snackbar.make(v,getResources().getString(R.string.platoAgregado),Snackbar.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     private void subirFoto(String foto){
@@ -82,6 +85,25 @@ public class AgregarPlato extends AppCompatActivity {
 
     public void limpiar(View v){
         limpiar();
+    }
+
+    public boolean validar(){
+        int o = cmbTipos.getSelectedItemPosition();
+        if (txtNombrePlato.getText().toString().isEmpty()){
+            txtNombrePlato.setError(getResources().getString(R.string.errorNombrePlato));
+            txtNombrePlato.requestFocus();
+            return false;
+        }
+        if (o==0){
+            Toast.makeText(this, getResources().getString(R.string.errorTipoPlato), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (txtPrecioPlato.getText().toString().isEmpty()){
+            txtPrecioPlato.setError(getResources().getString(R.string.errorPrecio));
+            txtPrecioPlato.requestFocus();
+            return false;
+        }
+        return true;
     }
 
     public void seleccionarFoto(View v){

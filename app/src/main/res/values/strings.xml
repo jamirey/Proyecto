@@ -43,18 +43,30 @@
     <string name="buscar">Buscar</string>
     <string name="cedula">Cédula</string>
     <string name="metodoPago">Metodo de Pago</string>
+    <string name="escogeTipoPlato">Selecciona un tipo de plato...</string>
     <string-array name="opcionesPlato">
+        <item>@string/escogeTipoPlato</item>
         <item>@string/platoPrincipal</item>
         <item>@string/guarnicion</item>
         <item>@string/bebida</item>
         <item>@string/postre</item>
     </string-array>
 
+    <string-array name="opcionesPlatoLV">
+        <item>@string/platoPrincipal</item>
+        <item>@string/guarnicion</item>
+        <item>@string/bebida</item>
+        <item>@string/postre</item>
+    </string-array>
+
+
     <string name="efectivo">Efectivo</string>
     <string name="tarjeta">Tarjeta</string>
     <string name="usuario_guardado_exitoso">Usuario guardado exitosamente</string>
     <string name="agregarUsuario">Agregar Usuario</string>
+    <string name="selecciona_metodoPago">Selecciona un metodo de pago...</string>
     <string-array name="metodoPago">
+        <item>@string/selecciona_metodoPago</item>
         <item>@string/efectivo</item>
         <item>@string/tarjeta</item>
     </string-array>
@@ -68,7 +80,20 @@
     <string name="cargarPlatos">Cargar Platos</string>
     <string name="limppiar">Limpiar</string>
     <string name="listaEsc">Lista de </string>
+    <string name="errorNombrePlato">Debes ingresar un nombre al plato.</string>
+    <string name="errorPrecio">Debes ingresar un precio al plato</string>
+    <string name="errorTipoPlato">Debes seleccionar un tipo de plato</string>
+    <string name="errorCedula">Debes ingresar una cédula</string>
+    <string name="errorNombreUsuario">Debes ingresar un nombre.</string>
+    <string name="errorApellido">Debes ingresar un apellido</string>
+    <string name="errorMetodo">Debes seleccionar un metodo de pago.</string>
+    <string name="selecciona_mesa">Selecciona una mesa...</string>
+    <string name="errorUsuario">Debes ingresar un usuario</string>
+    <string name="errorBuscar">Usuario no encontrado</string>
+    <string name="errorPlato">Debes seleccionar un plato</string>
+    <string name="pedido_guardado">Pedido guardado exitosamente.</string>
     <string-array name="mesas">
+        <item>@string/selecciona_mesa</item>
         <item>@string/mesa1</item>
         <item>@string/mesa2</item>
         <item>@string/mesa3</item>

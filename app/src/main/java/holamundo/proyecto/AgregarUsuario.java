@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.storage.FirebaseStorage;
 
@@ -38,17 +39,18 @@ public class AgregarUsuario extends AppCompatActivity {
 
     public void guardar(View v){
         String cedula, nombre, apellido, id, metodoPago;;
-        //foto = this.fotoAleatoria();
 
-        id = Datos.getId();
-        cedula = txtCedula.getText().toString();
-        nombre = txtNombre.getText().toString();
-        apellido = txtApellido.getText().toString();
-        metodoPago = cmbMetodoPago.getSelectedItem().toString();
-        Usuario u = new Usuario(id,cedula,nombre,apellido,metodoPago);
-        u.guardar();
-        limpiar();
-        Snackbar.make(v,getResources().getString(R.string.usuario_guardado_exitoso),Snackbar.LENGTH_SHORT).show();
+        if (validar()){
+            id = Datos.getId();
+            cedula = txtCedula.getText().toString();
+            nombre = txtNombre.getText().toString();
+            apellido = txtApellido.getText().toString();
+            metodoPago = cmbMetodoPago.getSelectedItem().toString();
+            Usuario u = new Usuario(id,cedula,nombre,apellido,metodoPago);
+            u.guardar();
+            limpiar();
+            Snackbar.make(v,getResources().getString(R.string.usuario_guardado_exitoso),Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     public void onBackPressed(){
@@ -71,5 +73,29 @@ public class AgregarUsuario extends AppCompatActivity {
 
     public void limpiar(View v){
         limpiar();
+    }
+
+    public boolean validar(){
+        int o = cmbMetodoPago.getSelectedItemPosition();
+        if (txtCedula.getText().toString().isEmpty()){
+            txtCedula.setError(getResources().getString(R.string.errorCedula));
+            txtCedula.requestFocus();
+            return false;
+        }
+        if (txtNombre.getText().toString().isEmpty()){
+            txtNombre.setError(getResources().getString(R.string.errorNombreUsuario));
+            txtNombre.requestFocus();
+            return false;
+        }
+        if (txtApellido.getText().toString().isEmpty()){
+            txtApellido.setError(getResources().getString(R.string.errorApellido));
+            txtApellido.requestFocus();
+            return false;
+        }
+        if (o==0){
+            Toast.makeText(this, getResources().getString(R.string.errorMetodo), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

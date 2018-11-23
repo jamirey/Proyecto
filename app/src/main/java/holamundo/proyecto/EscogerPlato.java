@@ -1,12 +1,14 @@
 package holamundo.proyecto;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -80,13 +82,30 @@ public class EscogerPlato extends AppCompatActivity {
         String id, cedula, nombre, plato, mesa;
         b = this.getIntent().getExtras();
 
-        id = Datos.getId();
-        cedula=b.getString("cedula");
-        nombre=b.getString("nombre");
-        plato=cmbPlatos.getSelectedItem().toString();
-        mesa=b.getString("mesa");
+        if (validar()){
+            id = Datos.getId();
+            cedula=b.getString("cedula");
+            nombre=b.getString("nombre");
+            plato=cmbPlatos.getSelectedItem().toString();
+            mesa=b.getString("mesa");
 
-        Pedido p = new Pedido(id,cedula,nombre,plato,mesa);
-        p.guardar();
+            Pedido p = new Pedido(id,cedula,nombre,plato,mesa);
+            p.guardar();
+            limpiar();
+            Snackbar.make(v,getResources().getString(R.string.pedido_guardado),Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    public void limpiar(){
+
+    }
+
+    public boolean validar(){
+        int o = cmbPlatos.getSelectedItemPosition();
+        if (o==-1){
+            Toast.makeText(this, getResources().getString(R.string.errorPlato), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

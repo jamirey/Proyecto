@@ -20,7 +20,7 @@ public class ListaTiposPlatos extends AppCompatActivity {
 
         lv= findViewById(R.id.lstTiposPlatos);
 
-        opc= getResources().getStringArray(R.array.opcionesPlato);
+        opc= getResources().getStringArray(R.array.opcionesPlatoLV);
         ArrayAdapter<String> adapter =new ArrayAdapter(this, android.R.layout.simple_list_item_1,opc);
         lv.setAdapter(adapter);
 
