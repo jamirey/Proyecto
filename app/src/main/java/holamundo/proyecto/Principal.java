@@ -22,7 +22,6 @@ public class Principal extends AppCompatActivity {
         opc = getResources().getStringArray(R.array.opciones);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,opc);
-
         lv.setAdapter(adapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -42,6 +41,10 @@ public class Principal extends AppCompatActivity {
                         startActivity(in);
                         break;
                     case 3:
+                        in = new Intent(Principal.this,ListaPedidos.class);
+                        startActivity(in);
+                        break;
+                    case 4:
                         in = new Intent(Principal.this,EscogerMesa.class);
                         startActivity(in);
                         break;

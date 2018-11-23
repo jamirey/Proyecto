@@ -23,11 +23,12 @@
     <string name="guardar">Guardar</string>
     <string name="datosPlato">Datos del plato</string>
     <string name="listaTipos">Tipos de platos</string>
-
+    <string name="pedidosRealizados">Pedidos Realizados</string>
     <string-array name="opciones">
         <item>@string/agregarPlato</item>
         <item>@string/agregarUsuario</item>
         <item>@string/listaTipos</item>
+        <item>@string/pedidosRealizados</item>
         <item>@string/hazPedido</item>
     </string-array>
 
@@ -92,6 +93,13 @@
     <string name="errorBuscar">Usuario no encontrado</string>
     <string name="errorPlato">Debes seleccionar un plato</string>
     <string name="pedido_guardado">Pedido guardado exitosamente.</string>
+    <string name="errorMesa">Debes seleccionar una mesa</string>
+    <string name="listaPedidos">Pedidos Realizados</string>
+    <string name="infoVenta">Información del Pedido</string>
+    <string name="mensaje1">La persona </string>
+    <string name="mensaje2"> ubicada en la mesa </string>
+    <string name="mensaje3">pidió un(a) </string>
+    <string name="realizado">Realizado</string>
     <string-array name="mesas">
         <item>@string/selecciona_mesa</item>
         <item>@string/mesa1</item>

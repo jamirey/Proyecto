@@ -55,27 +55,29 @@ public class EscogerPlato extends AppCompatActivity {
     }
 
     public void cargar(View v){
-        databaseReference.child(db).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                final List<String> platos = new ArrayList<>();
-                String sel = cmbTiposPlatos.getSelectedItem().toString();
-                for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()){
-                    String tipo = areaSnapshot.child("tipo").getValue(String.class);
-                    if (sel.equalsIgnoreCase(tipo)){
-                        String plato = areaSnapshot.child("nombre").getValue(String.class);
-                        platos.add(plato);
+        if (validarCargar()){
+            databaseReference.child(db).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    final List<String> platos = new ArrayList<>();
+                    String sel = cmbTiposPlatos.getSelectedItem().toString();
+                    for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()){
+                        String tipo = areaSnapshot.child("tipo").getValue(String.class);
+                        if (sel.equalsIgnoreCase(tipo)){
+                            String plato = areaSnapshot.child("nombre").getValue(String.class);
+                            platos.add(plato);
+                        }
                     }
+                    adapterPlatos = new ArrayAdapter<>(EscogerPlato.this, android.R.layout.simple_spinner_item,platos);
+                    adapterPlatos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    cmbPlatos.setAdapter(adapterPlatos);
                 }
-                adapterPlatos = new ArrayAdapter<>(EscogerPlato.this, android.R.layout.simple_spinner_item,platos);
-                adapterPlatos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                cmbPlatos.setAdapter(adapterPlatos);
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
     }
 
     public void guardar(View v){
@@ -104,6 +106,15 @@ public class EscogerPlato extends AppCompatActivity {
         int o = cmbPlatos.getSelectedItemPosition();
         if (o==-1){
             Toast.makeText(this, getResources().getString(R.string.errorPlato), Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    public boolean validarCargar(){
+        int o = cmbTiposPlatos.getSelectedItemPosition();
+        if (o==0){
+            Toast.makeText(this, getResources().getString(R.string.errorTipoPlato), Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

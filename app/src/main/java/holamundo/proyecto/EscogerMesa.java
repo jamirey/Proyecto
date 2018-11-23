@@ -43,18 +43,21 @@ public class EscogerMesa extends AppCompatActivity {
     }
 
     public void buscar_usuario(View v){
+        txtNombre.setText("");
         databaseReference.child(db).addValueEventListener(new ValueEventListener() {
             String cedula = txtCedula.getText().toString();
+            Boolean enc = false;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()){
                     String cedulaUsuario = areaSnapshot.child("cedula").getValue(String.class);
                     if (cedula.equalsIgnoreCase(cedulaUsuario)){
                         String nombreUsuario = areaSnapshot.child("nombre").getValue(String.class);
+                        enc = true;
                         txtNombre.setText(nombreUsuario);
                     }
                 }
-                validarBuscar();
+                validarBuscar(enc);
             }
 
             @Override
@@ -82,7 +85,7 @@ public class EscogerMesa extends AppCompatActivity {
     public boolean validar(){
         int o = cmbMesa.getSelectedItemPosition();
         if (o==0){
-            Toast.makeText(this, getResources().getString(R.string.errorMetodo), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getResources().getString(R.string.errorMesa), Toast.LENGTH_SHORT).show();
             return false;
         }
         if (txtNombre.getText().toString().isEmpty()){
@@ -93,13 +96,14 @@ public class EscogerMesa extends AppCompatActivity {
         return true;
     }
 
-    public boolean validarBuscar(){
+    public boolean validarBuscar(Boolean encontro){
+        Boolean enc = encontro;
         if (txtCedula.getText().toString().isEmpty()){
             Toast.makeText(this, getResources().getString(R.string.errorCedula), Toast.LENGTH_SHORT).show();
             txtCedula.requestFocus();
             return false;
         }
-        if (txtNombre.getText().toString().isEmpty()){
+        if (enc==false){
             Toast.makeText(this, getResources().getString(R.string.errorBuscar), Toast.LENGTH_SHORT).show();
             txtCedula.requestFocus();
             return false;

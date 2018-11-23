@@ -7,6 +7,9 @@ public class Pedido {
     private String plato;
     private String mesa;
 
+    public Pedido() {
+    }
+
     public Pedido(String id, String cedulaUsuario, String nombreUsuario, String plato, String mesa) {
         this.id = id;
         this.cedulaUsuario = cedulaUsuario;
