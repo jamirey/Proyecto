@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Proyecto</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Restaurante</string>
+    <string name="action_settings">Ajustes</string>
     <string name="opciones">OPCIONES</string>
-    <string name="title_activity_lista_tipos_platos">ListaTiposPlatos</string>
+    <string name="title_activity_lista_tipos_platos">Lista Tipos de Platos</string>
     <string name="escogeMesa">Escoge una Mesa</string>
     <string name="mesa">Número de mesa</string>
     <string name="codigoMesa">Código de Mesa</string>
